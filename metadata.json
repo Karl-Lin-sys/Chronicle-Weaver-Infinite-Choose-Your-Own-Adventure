@@ -1,0 +1,6 @@
+{
+  "name": "Chronicle Weaver: Infinite Choose-Your-Own-Adventure",
+  "description": "An infinite AI-powered choose-your-own-adventure engine with real-time consistent art generation, dynamic inventory and quest tracking, low-latency turns, and a Gemini Game Master companion.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
