@@ -1,3 +1,4 @@
+import { localApiOnly } from './local-api-guard.mjs';
 import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
@@ -9,6 +10,7 @@ dotenv.config();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
+app.use('/api', localApiOnly(() => port));
 const port = parseInt(process.env.PORT || '3000', 10);
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -469,7 +471,7 @@ async function startServer() {
     });
   }
 
-  app.listen(port, '0.0.0.0', () => {
+  app.listen(port, '127.0.0.1', () => {
     console.log(`Adventure server running at http://localhost:${port} in ${isProd ? 'production' : 'development'} mode`);
   });
 }
